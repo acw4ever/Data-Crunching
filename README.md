@@ -18,12 +18,16 @@ Purpose: Build an automated, maintainable data pipeline in Microsoft Fabric to i
 ## Pipeline Steps
 
 ### 1. Extract
-1.1 Data is ingested from two primary sources, both delivered in Excel format and landed in a SharePoint document library for downstream processing.
+Data is ingested from two primary sources, both delivered in Excel format and landed in a SharePoint document library for downstream processing.
 
 
 First source — Outlook attachments Two Excel workbooks, Active headcount and Attrition report, are received as attachments in Outlook email messages. A Power Automate flow automatically downloads these attachments and uploads them to a designated SharePoint document library, eliminating manual intervention.
 ### Power Automate Sample
-![Power Automate Flow](PowerAutomateFlow.bmp)
+![Power Automate Flow](PowerAutomateFlow.bmp)   
+
+Excel files received by e-mail are automatically stored in a sharepoint library document
+
+![Sharepoint library](sharepoint.bmp)
 
 Second source — Local HR system exports Two reports exported from the local HR system — All associate data and Termination report — are produced manually and then uploaded to the same SharePoint document library for consistency with the Outlook-sourced files.
 
@@ -34,14 +38,19 @@ All incoming files are centralized in SharePoint to provide a single staging loc
 The automated Outlook ingestion reduces manual steps; HR system extracts remain a manual step but follow the same landing pattern for downstream processing.
 
 ### 2. Transform
+### Transform
 
+The transformation stage is implemented in Microsoft Fabric and centers on a Fabric data warehouse that contains multiple staging and curated tables. **Dataflows**, **SQL scripts**, and **stored procedures** are used to import, parse, normalize, deduplicate, and enrich incoming rows. Automated validation detects missing or inconsistent values and routes those records to a review queue for manual inspection and correction. Once records pass validation, the cleaned data is loaded into the target **SQL Server** tables for downstream reporting and analytics.
 
+**Key components**  
+- **Data warehouse:** staging and curated schemas for traceability.  
+- **Dataflows:** orchestrated imports and row-level transformations.  
+- **Scripts & stored procedures:** complex business rules, joins, and bulk operations.  
+- **Validation & review:** automated checks plus manual review for exceptions.  
+- **Load to SQL Server:** final push of validated, cleaned data for consumers.
 
-Describe cleaning, logic, and transformation steps.  
-Example:  
-- Removes duplicates  
-- Fills missing values  
-- Aggregates monthly sales  
+![Transformation Process](Taskflow2.png)
+
 
 ### 3. Load
 Explain where the transformed data goes.  
