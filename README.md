@@ -72,10 +72,8 @@ Once records have been validated and approved, the cleaned data is moved from Mi
 ![overview](overview.bmp)
 
 ## License
-[MIT License] or other as appropriate.
+[Microsoft Fabric Trial] or other as appropriate.
 
-## Credits
-Mention collaborators, data sources, and referenced projects.
 
 ## Contact
 Hgarielito@gmail.com or www.linkedin.com/in/hermogenes-gutierrez-33ba54152 for professional inquiries.
