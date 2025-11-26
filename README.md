@@ -78,4 +78,4 @@ Once records have been validated and approved, the cleaned data is moved from Mi
 Mention collaborators, data sources, and referenced projects.
 
 ## Contact
-Email or LinkedIn for professional inquiries.
+Hgarielito@gmail.com or www.linkedin.com/in/hermogenes-gutierrez-33ba54152 for professional inquiries.
